@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>INEA Nayarit-Hoja Única</title>
+    <link rel="icon" type="image/ico" href="../Recursos/icono.ico" />
+    <link rel="stylesheet" href="../CSS/Recursos/bootstrap.css" />
+    <link rel="stylesheet" href="../CSS/principal.css" />
+    <link rel="stylesheet" href="../CSS/CURhojaUnica.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header" class="d-print-none">
+        <!--Comienza el encabezado de la pagina-->
+        <header>
+          <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark"
+            style="height: 60px"
+          >
+            <a class="navbar-brand" href="http://inea.nayarit.gob.mx/"
+              >INEA Nayarit</a
+            >
+            <button
+            id="btnLogOut"
+            class="btn btn-success my-2 my-sm-0 bg-dark ml-auto"
+            type="button"
+            onclick="logout();"
+          >
+          Salir
+        </button>
+          </nav>
+        </header>
+      </div>
+      <!--termina el encabezado de la pagina-->
+      <!--Comienza el cuerpo de la pagina-->
+      <div id="body">
+        <div id="hojaUnica">
+          <div class="container">
+            <div class="row">
+              <div class="col-1">
+                <img
+                  class="mr-2"
+                  width="70"
+                  height="90"
+                  src="../Recursos/INEA.jpg"
+                />
+              </div>
+              <div class="col-10 ml-0">
+                <div class="row justify-content-center">
+                  <h1>Instituto Nayarita de Educación para Adultos</h1>
+                  <h3>HOJA ÚNICA DE SERVICIO</h3>
+                </div>
+              </div>
+              <div class="col-1 mr-0">
+                <img width="100" height="100" src="../Recursos/nay.png" />
+              </div>
+            </div>
+            <div class="row">
+              <form
+                id="hojaUnicaData"
+                class="col-12"
+                method="POST"
+                id="frmHojaU"
+              >
+                <div class="form-row border my-2">
+                  <label class="bg-light col-12 border font-weight-bold"
+                    >1.- DATOS DEL TRABAJADOR</label
+                  >
+                  <div class="form-group col-12">
+                    <div class="form-row  ">
+                      <input
+                        editable
+                        id="inputApellidoP"
+                        class="col-3 my-3"
+                        placeholder="Apellido Paterno"
+                        readonly
+                      />
+                      <input
+                        id="inputApellidoM"
+                        class="col-3 my-3"
+                        placeholder="Apellido Materno"
+                        readonly
+                      />
+                      <input
+                        class="col-3 my-3"
+                        placeholder="Nombre(s)"
+                        id="inputNombres"
+                        readonly
+                      />
+                      <input
+                        class="col-2 my-3"
+                        placeholder="R.F.C"
+                        id="inputRFC"
+                        readonly
+                      />
+                      <input
+                        class="col-1 my-3"
+                        placeholder="Homonima"
+                        id="inputHomoclave"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-row ">
+                      <input
+                        class="col-3 my-3"
+                        placeholder="Calle, Avenida, Calzada, etc."
+                        id="inputDireccion"
+                        readonly
+                      />
+                      <input
+                        class="col-1 my-3"
+                        placeholder="No. Ext"
+                        id="inputNumero"
+                        readonly
+                      />
+                      <input
+                        class="col-3 my-3"
+                        placeholder="Colonia, Barrio o Sección"
+                        id="inputColonia"
+                        readonly
+                      />
+                      <input
+                        class="col-1 my-3"
+                        placeholder="C.P."
+                        id="inputCP"
+                        readonly
+                      />
+                      <input
+                        class="col-2 my-3"
+                        placeholder="Ciudad"
+                        id="inputCiudad"
+                        readonly
+                      />
+                      <input
+                        class="col-2 my-3"
+                        placeholder="Estado"
+                        id="inputEstado"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row border my-2">
+                  <label class="bg-light col-12 border font-weight-bold"
+                    >2.- PERÍODO DE APORTACIONES AL FONODO DEL
+                    I.S.S.S.T.E</label
+                  >
+                  <div class="form-group col-12">
+                    <div class="form-row">
+                      <input
+                        class="col-2 border"
+                        type="date"
+                        placeholder="Fecha Con Número"
+                        id="inputFechaNumIn"
+                        onchange="cargarFechaEscrita('inputFechaLetIn','inputFechaNumIn')"
+                        readonly
+                      />
+                      <input
+                        class="col-4 border"
+                        placeholder="Con Letra (día, mes y año)"
+                        id="inputFechaLetIn"
+                        readonly
+                      />
+                      <input
+                        class="col-2 border"
+                        type="date"
+                        placeholder="Fecha Con Número"
+                        id="inputFechaNumBaj"
+                        onchange="cargarFechaEscrita('inputFechaLetBaj','inputFechaNumBaj')"
+                        readonly
+                      />
+                      <input
+                        class="col-4 border"
+                        placeholder="Con Letra (día, mes y año)"
+                        id="inputFechaLetBaj"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row border my-2">
+                  <label class="bg-light col-12 border font-weight-bold"
+                    >3.- MOTIVO Y PERÍODO EN QUE OCURRIÓ LA(S), BAJA(S)
+                    REINGRESO(S), LICENCIA(S) Y/O SUSPENCIÓN(ES) &nbsp;</label
+                  >
+                  <diV class="d-print-none">
+                    <button
+                      type="button"
+                      class="btn btn-outline-light btn-sm"
+                      id="btnDetalles"
+                      data-toggle="modal"
+                      data-target=".bd-modalD-xl"
+                      onclick="detallesSecFin()"
+                    >
+                      <img
+                        class="glyphicon-object-align-vertical"
+                        src="../Recursos/magnifying-glass.svg"
+                      />
+                    </button>
+                  </diV>
+                  <div class="form-group col-12">
+                    <table
+                      class="table table-bordered table-responsive-md text-center w-100"
+                      id="tblResumenSec3"
+                    >
+                      <thead>
+                        <tr class="text-center">
+                          <th rowspan="2">MOTIVO</th>
+                          <th colspan="2">PERIODO</th>
+                          <th rowspan="2">
+                            PUESTO O <br />
+                            CATEGORIA
+                          </th>
+                          <th rowspan="2">
+                            SUELDO <br />
+                            BÁSICO
+                          </th>
+                          <th rowspan="2">SOBRESUELDO</th>
+                          <th rowspan="2">COMPENSACIÓN</th>
+                          <th rowspan="2">
+                            QUINQUENIOS <br />
+                            (PRIMA DE <br />
+                            ANTIGÜEDAD)
+                          </th>
+                          <th id="txtOtras" rowspan="2">
+                            OTRAS PERCEPCIONES <br />
+                            SUJETAS A <br />
+                            APORTACIONES DEL <br />
+                            I.S.S.S.T.E
+                          </th>
+                          <th rowspan="2">
+                            TOTAL <br />
+                            (PESOS)
+                          </th>
+                        </tr>
+                        <tr>
+                          <th id="periodoDelAl">DEL</th>
+                          <th id="periodoDelAl">AL</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tblBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="form-row border my-2">
+                  <label class="bg-light col-12 border font-weight-bold"
+                    >4.- OBSERVACIONES</label
+                  >
+                  <div class="form-group col-12">
+                    <textarea
+                      class="col-12 my-0 border-0"
+                      style="height: 100%"
+                      id="txtAobservaciones"
+                      readonly
+                    ></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="d-print-none row justify-content-center col-12">
+          <button
+            id="btnImprimir"
+            type="button"
+            class="btn  btn-success bg-dark mx-1"
+            onclick="imprimirHojaUnica('hojaUnica');"
+          >
+            Imprimir
+          </button>
+          <button
+            id="btnRegresar"
+            type="button"
+            class="btn  btn-success bg-dark mx-1"
+            onclick="regresar()"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+      <!--termina el cuerpo de la pagina-->
+      <!--Comienza el pie de la pagina-->
+      <div id="footer" class="d-print-none">
+        <footer class="bg-dark position-absolute fixed-bottom">
+          <div class="text-center" style="font-size: small">
+            <p class="text-white my-0">
+              Padre Mejia No. 68 Esq. Morelos Col. Cetro
+            </p>
+            <p class="text-white my-0">Tepic, Nayarit, México, C.P. 6300</p>
+            <p class="text-white my-0">Tel. (311) 217 94 36</p>
+          </div>
+        </footer>
+      </div>
+      <!--Termina el pie de la pagina-->
+    </div>
+    <script src="../JavaScript/plugins/jquery-3.4.1.min.js"></script>
+    <script src="../JavaScript/plugins/jquery.validate.min.js"></script>
+    <script src="../JavaScript/plugins/bootstrap.js"></script>
+    <script src="../JavaScript/plugins/popper.js"></script>
+    <script src="../JavaScript/principal.js"></script>
+    <script src="../JavaScript/HojaUnica.js"></script>
+    <!-- Modal Detalles-->
+    <div
+      class="modal fade bd-modalD-xl"
+      id="modalDetalles"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">
+              Sección 3 Motivos - Detalles
+            </h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="bntCerrarModal"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row my-2">
+              <table
+                class="table table-bordered table-responsive-md text-center w-100"
+                id="tblModalD"
+              >
+                <thead>
+                  <tr class="text-center">
+                    <th rowspan="2">MOTIVO</th>
+                    <th colspan="2">PERIODO</th>
+                    <th rowspan="2">
+                      PUESTO O <br />
+                      CATEGORIA
+                    </th>
+                    <th rowspan="2">
+                      SUELDO <br />
+                      BÁSICO
+                    </th>
+                    <th rowspan="2">SOBRESUELDO</th>
+                    <th rowspan="2">COMPENSACIÓN</th>
+                    <th rowspan="2">
+                      QUINQUENIOS <br />
+                      (PRIMA DE <br />
+                      ANTIGÜEDAD
+                    </th>
+                    <th id="txtOtras" rowspan="2">
+                      OTRAS PERCEPCIONES <br />
+                      SUJETAS A <br />
+                      APORTACIONES DEL <br />
+                      I.S.S.S.T.E
+                    </th>
+                    <th rowspan="2">
+                      TOTAL <br />
+                      (PESOS)
+                    </th>
+                  </tr>
+                  <tr>
+                    <th id="periodoDelAl">DEL</th>
+                    <th id="periodoDelAl">AL</th>
+                  </tr>
+                </thead>
+                <tbody id="tblBodyModalD"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

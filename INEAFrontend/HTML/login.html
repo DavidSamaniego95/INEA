@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>INEA Nayarit-Inicio de Sesión</title>
+    <link rel="icon" type="image/ico" href="../Recursos/icono.ico" />
+    <link rel="stylesheet" href="../CSS/Recursos/bootstrap.css" />
+    <link rel="stylesheet" href="../CSS/principal.css" />
+    <link rel="stylesheet" href="../CSS/login.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <!--Comienza el encabezado de la pagina-->
+        <header>
+          <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark"
+            style="height: 60px"
+          >
+            <a class="navbar-brand" href="http://inea.nayarit.gob.mx/"
+              >INEA Nayarit</a
+            >
+          </nav>
+        </header>
+      </div>
+      <!--termina el encabezado de la pagina-->
+      <!--Comienza el cuerpo de la pagina-->
+      <div id="body">
+        <h1 class="text-center">
+          INSTITUTO NAYARITA DE EDUCACIÓN PARA ADULTOS
+        </h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div class="card card-signin my-0">
+                <div class="card-body">
+                  <h5 class="card-title text-center ">Inicio de Sesión</h5>
+                  <div class="mb-3 text-center">
+                    <img
+                      src="../Recursos/INEA.jpg"
+                      width="90px"
+                      height="100px"
+                    />
+                  </div>
+                  <form class="form-signin" id="frmLogin">
+                    <div class="form-label-group">
+                      <input
+                        type="text"
+                        id="inputUsr"
+                        class="form-control"
+                        placeholder="Usuario"
+                        required
+                        autofocus
+                      />
+                      <label for="inputUsr">Usuario</label>
+                    </div>
+                    <div class="form-label-group">
+                      <input
+                        id="inputPass"
+                        type="password"
+                        class="form-control"
+                        placeholder="Contraseña"
+                        required
+                      />
+                      <label for="inputPass">Contraseña</label>
+                    </div>
+                    <button
+                      id="btnLogIn"
+                      class="btn btn-lg btn-success btn-block text-uppercase bg-dark"
+                      type="button"
+                      onclick="login()"
+                    >
+                      Iniciar Sesión
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--termina el cuerpo de la pagina-->
+      <!--Comienza el pie de la pagina-->
+      <div id="footer">
+        <footer class="bg-dark position-absolute fixed-bottom">
+          <div class="text-center" style="font-size: small">
+            <p class="text-white my-0">
+              Padre Mejia No. 68 Esq. Morelos Col. Cetro
+            </p>
+            <p class="text-white my-0">Tepic, Nayarit, México, C.P. 6300</p>
+            <p class="text-white my-0">Tel. (311) 217 94 36</p>
+          </div>
+        </footer>
+      </div>
+      <!--Termina el pie de la pagina-->
+    </div>
+    <script src="../JavaScript/plugins/jquery-3.4.1.min.js"></script>
+    <script src="../JavaScript/plugins/jquery.validate.min.js"></script>
+    <script src="../JavaScript/login.js"></script>
+    <script src="../JavaScript/principal.js"></script>
+  </body>
+</html>

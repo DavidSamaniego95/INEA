@@ -1,0 +1,11 @@
+@page {
+    size: auto;
+}
+th {
+    font-size: 12px;
+    vertical-align: middle;
+}
+#txtOtras, #periodoDelAl, td {
+    font-size: 10px;
+    vertical-align: middle;
+}
